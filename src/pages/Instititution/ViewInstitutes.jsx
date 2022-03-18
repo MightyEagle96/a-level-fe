@@ -47,6 +47,7 @@ export default function ViewInstitutes() {
         setLoading(true);
         const path = `DeleteInstitution/${id}`;
         await httpService.delete(path);
+        ViewInstituions();
         setLoading(false);
       }
     });
