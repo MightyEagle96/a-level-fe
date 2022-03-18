@@ -1,11 +1,17 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ViewInstitutes from "../pages/Instititution/ViewInstitutes";
+import NotFound from "../pages/NotFound";
 import WelcomePage from "../pages/WelcomePage/WelcomePage";
 import { loggedInUser } from "../services/services";
 
 const privateRoutes = [{ path: "/", component: WelcomePage }];
 
-const publicRoutes = [{ path: "/", component: WelcomePage }];
+const publicRoutes = [
+  { path: "/", component: WelcomePage },
+  { path: "/institutions", component: ViewInstitutes },
+  { path: "*", component: NotFound },
+];
 
 const MainRoutes = () => {
   return (
