@@ -47,7 +47,7 @@ export default function ViewInstitutes() {
         setLoading(true);
         const path = `DeleteInstitution/${id}`;
         await httpService.delete(path);
-        ViewInstituions();
+        ViewInstitutions();
         setLoading(false);
       }
     });
@@ -64,11 +64,11 @@ export default function ViewInstitutes() {
       await httpService.post(path, institution);
       setLoading(false);
       handleClose();
-      ViewInstituions();
+      ViewInstitutions();
     }
   };
 
-  const ViewInstituions = async () => {
+  const ViewInstitutions = async () => {
     setLoading(true);
     const path = "viewInstitutions";
     const res = await httpService.get(path);
@@ -77,7 +77,7 @@ export default function ViewInstitutes() {
     setLoading(false);
   };
   useEffect(() => {
-    ViewInstituions();
+    ViewInstitutions();
   }, []);
   return (
     <div>
