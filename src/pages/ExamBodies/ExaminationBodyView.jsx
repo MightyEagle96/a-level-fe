@@ -18,8 +18,14 @@ export default function ExaminationBodyView() {
   const [loading, setLoading] = useState(false);
 
   const GetExaminationBodies = async () => {
-    const res = await httpService.get("viewExamBodies");
-    setExamBodies(res.data.examBodies);
+    try {
+      setLoading(true);
+      const res = await httpService.get("viewExamBodies");
+      setExamBodies(res.data.examBodies);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
   };
 
   const CreateExamBody = async () => {
