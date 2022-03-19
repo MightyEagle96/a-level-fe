@@ -10,12 +10,18 @@ export default function NavigationBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="#link">Create Candidate</Nav.Link>
+
             <Nav.Link href="/institutions">Institutions</Nav.Link>
             <Nav.Link href="/subjects">Subjects</Nav.Link>
             <NavDropdown title="Actions" id="basic-nav-dropdown">
               <NavDropdown.Item href="/examBodies">
                 Examination Bodies
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/viewCandidates">
+                Candidates List
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/createCandidate">
+                Create Candidate
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
