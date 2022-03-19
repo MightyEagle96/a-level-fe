@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 
 export default function ViewInstitutes() {
   const [show, setShow] = useState(false);
+
   const [institution, setInstitution] = useState({});
   const [institutions, setInstitutions] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -47,6 +48,7 @@ export default function ViewInstitutes() {
         setLoading(true);
         const path = `DeleteInstitution/${id}`;
         await httpService.delete(path);
+        ViewInstitutions();
         setLoading(false);
       }
     });
@@ -63,11 +65,11 @@ export default function ViewInstitutes() {
       await httpService.post(path, institution);
       setLoading(false);
       handleClose();
-      ViewInstituions();
+      ViewInstitutions();
     }
   };
 
-  const ViewInstituions = async () => {
+  const ViewInstitutions = async () => {
     setLoading(true);
     const path = "viewInstitutions";
     const res = await httpService.get(path);
@@ -76,7 +78,7 @@ export default function ViewInstitutes() {
     setLoading(false);
   };
   useEffect(() => {
-    ViewInstituions();
+    ViewInstitutions();
   }, []);
   return (
     <div>
