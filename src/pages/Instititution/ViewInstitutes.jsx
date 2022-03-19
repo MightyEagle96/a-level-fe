@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 
 export default function ViewInstitutes() {
   const [show, setShow] = useState(false);
+
   const [institution, setInstitution] = useState({});
   const [institutions, setInstitutions] = useState([]);
   const [loading, setLoading] = useState(false);

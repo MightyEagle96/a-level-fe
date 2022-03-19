@@ -12,6 +12,7 @@ export default function NavigationBar() {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="#link">Create Candidate</Nav.Link>
             <Nav.Link href="/institutions">Institutions</Nav.Link>
+            <Nav.Link href="/subjects">Subjects</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
