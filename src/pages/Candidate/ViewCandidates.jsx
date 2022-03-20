@@ -4,15 +4,23 @@ import { Container } from "react-bootstrap";
 import DataTable from "react-data-table-component";
 import { httpService } from "../../services/services";
 import { stringAvatar } from "../../utils/util";
+import { Spinner } from "react-bootstrap";
 
 export default function ViewCandidates() {
   const [candidates, setCandidates] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const GetCandidates = async () => {
-    const path = "viewCandidates";
-    const res = await httpService.get(path);
-    //console.log(res.data.candidates);
-    setCandidates(res.data.candidates);
+    setLoading(true);
+
+    try {
+      const path = "viewCandidates";
+      const res = await httpService.get(path);
+      setCandidates(res.data.candidates);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
   };
 
   const columns = [
@@ -32,7 +40,7 @@ export default function ViewCandidates() {
     { name: "Registration Number", selector: (row) => row.regNumber },
     {
       name: "Result",
-      selector: (row) => <Button color="secondary">view result</Button>,
+      selector: (row) => <Button color="secondary">view </Button>,
     },
   ];
   useEffect(() => {
@@ -44,10 +52,20 @@ export default function ViewCandidates() {
         <div className="border border-dark rounded-3 mt-3 p-3">
           <Typography variant="h5" color="ButtonShadow">
             Candidate List
-          </Typography>
+          </Typography>{" "}
+          {loading ? (
+            <Spinner
+              animation="border"
+              variant="danger"
+              className="ms-2"
+              size="sm"
+            />
+          ) : (
+            ""
+          )}
           <hr />
           <DataTable
-            title="Registered Candidates"
+            title={`Registered Candidates (${candidates.length})`}
             columns={columns}
             data={candidates}
             pagination
