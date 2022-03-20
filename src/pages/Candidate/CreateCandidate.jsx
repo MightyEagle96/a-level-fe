@@ -16,14 +16,11 @@ import {
   MenuItem,
 } from "@mui/material";
 
-import Swal from "sweetalert2";
 import { httpService } from "../../services/services";
 import { Grades } from "../../services/labels";
 
 export default function CreateCandidate() {
-  const [activeStep, setActiveStep] = useState(0);
-  const [loading, setLoading] = useState(false);
-  const [values, setValues] = useState({
+  const defaultData = {
     firstName: "",
     lastName: "",
     institution: "",
@@ -31,7 +28,10 @@ export default function CreateCandidate() {
     subject1: { subject: "", grade: "" },
     subject2: { subject: "", grade: "" },
     subject3: { subject: "", grade: "" },
-  });
+  };
+  const [activeStep, setActiveStep] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [values, setValues] = useState(defaultData);
   const [errorState, setErrorState] = useState({
     name: false,
     email: false,
@@ -446,19 +446,10 @@ export default function CreateCandidate() {
     setLoading(true);
     try {
       const path = "createCandidate";
-      const res = await httpService.post(path, values);
-
-      // if (res) {
-      //   setLoading(false);
-
-      //   Swal.fire({
-      //     icon: "success",
-      //     title: "New Vendor Created",
-      //     text: "Your vendor account has been created successfully and a token has been sent to your email",
-      //   }).then(() => {
-      //     //redirectTo("validateAccount");
-      //   });
-      // } else setLoading(false);
+      await httpService.post(path, values);
+      setLoading(false);
+      setActiveStep(0);
+      setValues(defaultData);
     } catch (error) {
       setLoading(false);
     }

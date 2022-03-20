@@ -1,0 +1,9 @@
+.footerBar {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(0, 0, 0, 0.637),
+      rgba(0, 0, 0, 0.692)
+    ),
+    url("../images/img1.jpg");
+  background-position: center;
+}
