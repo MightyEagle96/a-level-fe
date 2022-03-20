@@ -1,8 +1,8 @@
-import { Typography } from "@mui/material";
+import { Typography, Avatar } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Table } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-
+import { stringAvatar } from "../../utils/util";
 import { httpService } from "../../services/services";
 
 export default function ViewCandidate() {
@@ -33,7 +33,48 @@ export default function ViewCandidate() {
     <div>
       <Container>
         <div className="mt-3 border border-dark p-3 rounded-3">
-          <Typography variant="h3">{`${candidate.firstName} ${candidate.lastName}`}</Typography>
+          <div className="d-flex justify-content-between">
+            <div>
+              <Typography variant="h5">{`${candidate.firstName} ${candidate.lastName}`}</Typography>
+            </div>
+            <div>
+              {candidate.imageUrl ? (
+                <Avatar src={candidate.imageUrl} alt={candidate._id} />
+              ) : (
+                <Avatar
+                  {...stringAvatar(
+                    `${candidate.firstName}-${candidate.lastName}`
+                  )}
+                />
+              )}
+            </div>
+          </div>
+          <hr />
+          <div className="row">
+            <div className="col-md-6">
+              <Typography>{`Institution: ${candidate.institution.name}`}</Typography>
+              <Typography>{`Exam Body: ${candidate.examinationBody.name}`}</Typography>
+              <Typography>{`Registration Number: ${candidate.regNumber}`}</Typography>
+            </div>
+            <div className="col-md-6">
+              <Table bordered>
+                <thead>
+                  <tr>
+                    <th>{candidate.subject1.subject.title}</th>
+                    <th>{candidate.subject2.subject.title}</th>
+                    <th>{candidate.subject3.subject.title}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{candidate.subject1.grade}</td>
+                    <td>{candidate.subject2.grade}</td>
+                    <td>{candidate.subject3.grade}</td>
+                  </tr>
+                </tbody>
+              </Table>
+            </div>
+          </div>
         </div>
       </Container>
     </div>

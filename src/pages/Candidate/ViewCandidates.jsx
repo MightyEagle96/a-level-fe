@@ -1,4 +1,4 @@
-import { Avatar, Button, Link, Typography } from "@mui/material";
+import { Avatar, Link, Typography } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import DataTable from "react-data-table-component";
@@ -35,8 +35,14 @@ export default function ViewCandidates() {
     },
     { name: "First Name", selector: (row) => row.firstName },
     { name: "Last Name", selector: (row) => row.lastName },
-    { name: "Institution", selector: (row) => row.institution.name },
-    { name: "Examination Body", selector: (row) => row.examinationBody.name },
+    {
+      name: "Institution",
+      selector: (row) => (row.institution ? row.institution.name : ""),
+    },
+    {
+      name: "Examination Body",
+      selector: (row) => (row.examinationBody ? row.examinationBody.name : ""),
+    },
     { name: "Registration Number", selector: (row) => row.regNumber },
     {
       name: "Result",
