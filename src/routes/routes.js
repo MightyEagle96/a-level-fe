@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CreateCandidate from "../pages/Candidate/CreateCandidate";
+import ViewCandidate from "../pages/Candidate/ViewCandidate";
 import ViewCandidates from "../pages/Candidate/ViewCandidates";
 import ExaminationBodyView from "../pages/ExamBodies/ExaminationBodyView";
 import ViewInstitutes from "../pages/Instititution/ViewInstitutes";
@@ -17,6 +18,7 @@ const publicRoutes = [
   { path: "/subjects", component: SubjectsView },
   { path: "/examBodies", component: ExaminationBodyView },
   { path: "/viewCandidates", component: ViewCandidates },
+  { path: "/viewCandidate/:id", component: ViewCandidate },
   { path: "/createCandidate", component: CreateCandidate },
   { path: "*", component: NotFound },
 ];

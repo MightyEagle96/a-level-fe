@@ -1,4 +1,4 @@
-import { Avatar, Button, Typography } from "@mui/material";
+import { Avatar, Button, Link, Typography } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import DataTable from "react-data-table-component";
@@ -40,7 +40,11 @@ export default function ViewCandidates() {
     { name: "Registration Number", selector: (row) => row.regNumber },
     {
       name: "Result",
-      selector: (row) => <Button color="secondary">view </Button>,
+      selector: (row) => (
+        <Link underline="none" href={`/viewCandidate/${row._id}`}>
+          VIEW
+        </Link>
+      ),
     },
   ];
   useEffect(() => {
