@@ -7,7 +7,9 @@ export default function ViewCandidates() {
     <div>
       <Container>
         <div className="border border-dark rounded-3 mt-3 p-3">
-          <Typography variant="h5">Candidate List</Typography>
+          <Typography variant="h5" color="ButtonShadow">
+            Candidate List
+          </Typography>
         </div>
       </Container>
     </div>

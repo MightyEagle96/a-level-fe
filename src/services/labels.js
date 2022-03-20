@@ -4,3 +4,5 @@ export const truncate = (str, num) => {
   }
   return str.slice(0, num) + "...";
 };
+
+export const Grades = ["A", "B", "C", "D", "E", "F", "Q"];
