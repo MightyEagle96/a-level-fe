@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SignIn from "../pages/Auth/SignIn";
 import CreateCandidate from "../pages/Candidate/CreateCandidate";
 import ViewCandidate from "../pages/Candidate/ViewCandidate";
 import ViewCandidates from "../pages/Candidate/ViewCandidates";
@@ -9,17 +10,22 @@ import NotFound from "../pages/NotFound";
 import SubjectsView from "../pages/subjects/SubjectsView";
 import WelcomePage from "../pages/WelcomePage/WelcomePage";
 import { loggedInUser } from "../services/services";
+import DashboardPage from "../pages/Dashboard/DashboardPage";
 
-const privateRoutes = [{ path: "/", component: WelcomePage }];
-
-const publicRoutes = [
-  { path: "/", component: WelcomePage },
+const privateRoutes = [
+  { path: "/dashboard", component: DashboardPage },
   { path: "/institutions", component: ViewInstitutes },
   { path: "/subjects", component: SubjectsView },
   { path: "/examBodies", component: ExaminationBodyView },
   { path: "/viewCandidates", component: ViewCandidates },
   { path: "/viewCandidate/:id", component: ViewCandidate },
   { path: "/createCandidate", component: CreateCandidate },
+];
+
+const publicRoutes = [
+  { path: "/", component: WelcomePage },
+
+  { path: "/signIn", component: SignIn },
   { path: "*", component: NotFound },
 ];
 

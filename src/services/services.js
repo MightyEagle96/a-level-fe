@@ -57,5 +57,5 @@ httpService.interceptors.response.use(
 export const handleLogout = () => {
   localStorage.removeItem("token");
   localStorage.removeItem("userData");
-  window.location.assign("/login");
+  window.location.assign("/signIn");
 };

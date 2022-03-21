@@ -1,6 +1,8 @@
 import React from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 
+import { loggedInUser } from "../services/services";
+import { handleLogout } from "../services/services";
 export default function NavigationBar() {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
@@ -10,20 +12,38 @@ export default function NavigationBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-
-            <Nav.Link href="/institutions">Institutions</Nav.Link>
-            <Nav.Link href="/subjects">Subjects</Nav.Link>
-            <NavDropdown title="Actions" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/examBodies">
-                Examination Bodies
-              </NavDropdown.Item>
-              <NavDropdown.Item href="/viewCandidates">
-                Candidates List
-              </NavDropdown.Item>
-              <NavDropdown.Item href="/createCandidate">
-                Create Candidate
-              </NavDropdown.Item>
-            </NavDropdown>
+            {loggedInUser ? (
+              <>
+                <Nav.Link href="/institutions">Institutions</Nav.Link>
+                <Nav.Link href="/subjects">Subjects</Nav.Link>
+                <NavDropdown title="Actions" id="basic-nav-dropdown">
+                  <NavDropdown.Item href="/examBodies">
+                    Examination Bodies
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="/viewCandidates">
+                    Candidates List
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="/createCandidate">
+                    Create Candidate
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </>
+            ) : (
+              ""
+            )}
+          </Nav>
+          <Nav className="ms-auto">
+            {loggedInUser ? (
+              <Nav.Link
+                onClick={() => {
+                  handleLogout();
+                }}
+              >
+                Sign out
+              </Nav.Link>
+            ) : (
+              <Nav.Link href="/signIn">Sign In</Nav.Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
