@@ -1,6 +1,6 @@
 import { Typography, Avatar, IconButton } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import { Container, Table } from "react-bootstrap";
+import { Container, Table, Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { stringAvatar } from "../../utils/util";
 import { httpService } from "../../services/services";
@@ -13,7 +13,7 @@ const Input = styled("input")({
 
 export default function ViewCandidate() {
   const { id } = useParams();
-  const [loading, setLoading] = useState([]);
+  const [loading, setLoading] = useState(false);
   const defaultData = {
     firstName: "",
     lastName: "",
@@ -37,12 +37,14 @@ export default function ViewCandidate() {
     // setIsSelected(true);
   };
   async function UploadProfilePhoto() {
-    const path = `uploadPhoto/${id}`;
+    setLoading(true);
+    const path = `uploadCandidatePhoto/${id}`;
     const formData = new FormData();
-    formData.append("organisationPhoto", selectedFile, selectedFile.name);
+    formData.append("profilePhoto", selectedFile, selectedFile.name);
 
     const res = await httpService.post(path, formData);
     if (res) {
+      setLoading(false);
       window.location.reload();
     }
   }
@@ -118,6 +120,16 @@ export default function ViewCandidate() {
                       >
                         <Upload />
                       </IconButton>
+                      {loading ? (
+                        <Spinner
+                          animation="border"
+                          variant="danger"
+                          className="ms-2"
+                          size="sm"
+                        />
+                      ) : (
+                        ""
+                      )}
                     </div>
                   </div>
                 </div>
