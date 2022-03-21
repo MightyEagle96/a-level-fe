@@ -5,16 +5,25 @@ import DataTable from "react-data-table-component";
 import { httpService } from "../../services/services";
 import { stringAvatar } from "../../utils/util";
 import { Spinner } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
 
 export default function ViewCandidates() {
   const [candidates, setCandidates] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const search = useLocation().search;
+
+  const institution = new URLSearchParams(search).get("institution");
+
   const GetCandidates = async () => {
     setLoading(true);
 
     try {
-      const path = "viewCandidates";
+      const path = institution
+        ? `viewCandidates?institution=${institution}`
+        : "viewCandidates";
+
+      console.log({ path });
       const res = await httpService.get(path);
       setCandidates(res.data.candidates);
       setLoading(false);

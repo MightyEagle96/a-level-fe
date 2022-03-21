@@ -1,5 +1,5 @@
 import { School, Delete } from "@mui/icons-material";
-import { Button, TextField, IconButton } from "@mui/material";
+import { Button, TextField, IconButton, Link } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import DataTable from "react-data-table-component";
 import { Modal, Spinner } from "react-bootstrap";
@@ -22,7 +22,11 @@ export default function ViewInstitutes() {
     { name: "Name", selector: (row) => row.name, sortable: true },
     {
       name: "Action",
-      selector: () => <Button>View Candidates</Button>,
+      selector: (row) => (
+        <Link underline="none" href={`/viewCandidates?institution=${row._id}`}>
+          VIEW CANDIDATES
+        </Link>
+      ),
       sortable: true,
     },
     {
