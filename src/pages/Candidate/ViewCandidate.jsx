@@ -53,6 +53,7 @@ export default function ViewCandidate() {
   useEffect(() => {
     GetCandidate();
   }, []);
+
   return (
     <div>
       <Container>
