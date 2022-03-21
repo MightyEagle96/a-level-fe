@@ -1,4 +1,4 @@
-import { School, Delete } from "@mui/icons-material";
+import { School, Delete, Edit } from "@mui/icons-material";
 import { Button, TextField, IconButton, Link } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import DataTable from "react-data-table-component";
@@ -30,33 +30,36 @@ export default function ViewInstitutes() {
       sortable: true,
     },
     {
-      name: "Delete",
+      name: "Edit Institution",
       selector: (row) => (
-        <IconButton color="error" onClick={() => DeleteChange(row._id)}>
-          <Delete />
+        <IconButton color="primary" onClick={() => GetInstitution(row._id)}>
+          <Edit />
         </IconButton>
       ),
     },
   ];
 
-  const DeleteChange = (id) => {
-    Swal.fire({
-      icon: "question",
-      title: "Delete Institution?",
-      text: "Are you sure you want to delete this institution? This is a destructive action.",
-      showCancelButton: true,
-      confirmButtonText: "Yes",
-      cancelButtonText: "No",
-    }).then(async (result) => {
-      if (result.isConfirmed) {
-        setLoading(true);
-        const path = `DeleteInstitution/${id}`;
-        await httpService.delete(path);
-        ViewInstitutions();
-        setLoading(false);
-      }
-    });
+  const GetInstitution = async (id) => {
+    const path = `viewInstitutions?_id=${id}`;
+    const res = await httpService.get(path);
+    setInstitution(res.data.institutions[0]);
+    handleShow();
   };
+
+  const UpdateInstitution = async () => {
+    try {
+      setLoading(true);
+      const path = `updateInstitution/${institution._id}`;
+      await httpService.patch(path, institution);
+      setLoading(false);
+      ViewInstitutions();
+      setInstitution({});
+      handleClose();
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+
   const handleChange = (e) => {
     setInstitution({ ...institution, [e.target.name]: e.target.value });
   };
@@ -126,8 +129,11 @@ export default function ViewInstitutes() {
           <Button variant="text" color="error" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="contained" onClick={CreateInstitution}>
-            CREATE INSTITUTION
+          <Button
+            variant="contained"
+            onClick={institution._id ? UpdateInstitution : CreateInstitution}
+          >
+            {institution._id ? "Update Institution" : "Create Institution"}
           </Button>
         </Modal.Footer>
       </Modal>

@@ -100,7 +100,6 @@ export default function CreateCandidate() {
             type="text"
             helperText="Enter Candidate's first name"
             style={{ width: 250 }}
-            error={errorState.firstName}
             name="firstName"
             onChange={handleChange}
             value={values.firstName}
@@ -114,7 +113,6 @@ export default function CreateCandidate() {
             variant="outlined"
             helperText="Enter Candidate's last name"
             style={{ width: 250 }}
-            error={errorState.lastName}
             onChange={handleChange}
             value={values.lastName}
             autoComplete="off"
@@ -173,7 +171,6 @@ export default function CreateCandidate() {
             variant="outlined"
             helperText="Enter Candidate's registration number"
             style={{ width: 250 }}
-            error={errorState.regNumber}
             onChange={handleChange}
             value={values.regNumber}
             autoComplete="off"
