@@ -1,10 +1,9 @@
-import { School, Delete, Edit } from "@mui/icons-material";
+import { School, Edit } from "@mui/icons-material";
 import { Button, TextField, IconButton, Link } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import DataTable from "react-data-table-component";
 import { Modal, Spinner } from "react-bootstrap";
 import { httpService } from "../../services/services";
-import Swal from "sweetalert2";
 
 export default function ViewInstitutes() {
   const [show, setShow] = useState(false);

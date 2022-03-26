@@ -1,8 +1,32 @@
 import { Button, TextField, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import { Spinner } from "react-bootstrap";
 import img1 from "../../images/img1.jpg";
+import { httpService } from "../../services/services";
 
 export default function WelcomePage() {
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  const handlePinInput = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const UseScratchCard = async (e) => {
+    e.preventDefault();
+
+    try {
+      setLoading(true);
+      const path = "useScratchCard";
+      const res = await httpService.post(path, data);
+
+      localStorage.setItem("candidate", JSON.stringify(res.data.candidate));
+      setLoading(false);
+      window.location.assign("result");
+    } catch (error) {
+      setLoading(false);
+    }
+  };
   return (
     <div>
       <div className="mt-5">
@@ -21,25 +45,38 @@ export default function WelcomePage() {
                   A' LEVEL VERIFICATION SYSTEM
                 </Typography>
               </div>
-              <div className="mt-2">
-                <TextField
-                  type="text"
-                  label="ABN"
-                  helperText="Enter your A Level Bank number on your scratch card"
-                />
-              </div>
-              <div className="mt-2">
-                <TextField
-                  type="text"
-                  label="Registration Number"
-                  helperText="Enter your registration Number"
-                />
-              </div>
-              <div className="mt-2">
-                <Button variant="contained" color="secondary">
-                  Check Result
-                </Button>
-              </div>
+              <form onSubmit={UseScratchCard}>
+                <div className="mt-2">
+                  <TextField
+                    type="text"
+                    label="ABN"
+                    helperText="Enter your A' Level Bank pin"
+                    name="pin"
+                    onChange={handlePinInput}
+                    value={data.pin}
+                  />
+                </div>
+                <div className="mt-2">
+                  <TextField
+                    type="text"
+                    label="Registration Number"
+                    helperText="Enter your registration Number"
+                    name="regNumber"
+                    value={data.regNumber}
+                    onChange={handlePinInput}
+                  />
+                </div>
+                <div className="mt-2">
+                  <Button variant="contained" color="secondary" type="submit">
+                    Check Result
+                  </Button>
+                  {loading ? (
+                    <Spinner animation="border" size="sm" color="secondary" />
+                  ) : (
+                    ""
+                  )}
+                </div>
+              </form>
             </div>
           </div>
         </div>
