@@ -41,7 +41,7 @@ export default function WelcomePage() {
             </div>
             <div className="col-md-6 border-start">
               <div className="mt-3">
-                <Typography variant="h4" color="CaptionText" gutterBottom>
+                <Typography variant="h5" color="GrayText" gutterBottom>
                   A' LEVEL VERIFICATION SYSTEM
                 </Typography>
               </div>
@@ -71,7 +71,12 @@ export default function WelcomePage() {
                     Check Result
                   </Button>
                   {loading ? (
-                    <Spinner animation="border" size="sm" color="secondary" />
+                    <Spinner
+                      animation="border"
+                      size="sm"
+                      color="red"
+                      className="ms-2"
+                    />
                   ) : (
                     ""
                   )}

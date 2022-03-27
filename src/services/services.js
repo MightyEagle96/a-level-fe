@@ -35,7 +35,7 @@ httpService.interceptors.response.use(
         title: response.data.title,
         text: response.data.message,
         showConfirmButton: false,
-        timer: 2000,
+        timer: 3000,
       });
     }
     return response;
@@ -49,7 +49,7 @@ httpService.interceptors.response.use(
         title: failed.error.response.data.title,
         text: failed.error.response.data.message,
         showConfirmButton: false,
-        timer: 2000,
+        timer: 3000,
       });
     }
     // return error;
