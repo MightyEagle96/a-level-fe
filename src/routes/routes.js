@@ -11,6 +11,7 @@ import SubjectsView from "../pages/subjects/SubjectsView";
 import WelcomePage from "../pages/WelcomePage/WelcomePage";
 import { loggedInUser } from "../services/services";
 import DashboardPage from "../pages/Dashboard/DashboardPage";
+import ResultsPage from "../pages/Results/ResultsPage";
 
 const privateRoutes = [
   { path: "/dashboard", component: DashboardPage },
@@ -24,7 +25,7 @@ const privateRoutes = [
 
 const publicRoutes = [
   { path: "/", component: WelcomePage },
-
+  { path: "/result", component: ResultsPage },
   { path: "/signIn", component: SignIn },
   { path: "*", component: NotFound },
 ];

@@ -14,6 +14,8 @@ const AUTH_TOKEN = localStorage.getItem("token") || "glory";
 export const loggedInUser =
   JSON.parse(localStorage.getItem("userData")) || null;
 
+export const result = JSON.parse(localStorage.getItem("candidate")) || null;
+
 export const httpService = axios.create({
   baseURL: backendUrl,
   timeout: 10000,
@@ -33,7 +35,7 @@ httpService.interceptors.response.use(
         title: response.data.title,
         text: response.data.message,
         showConfirmButton: false,
-        timer: 2000,
+        timer: 3000,
       });
     }
     return response;
@@ -47,7 +49,7 @@ httpService.interceptors.response.use(
         title: failed.error.response.data.title,
         text: failed.error.response.data.message,
         showConfirmButton: false,
-        timer: 2000,
+        timer: 3000,
       });
     }
     // return error;
