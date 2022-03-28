@@ -1,0 +1,26 @@
+.mobileBanner {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.945),
+      rgba(255, 255, 255, 0.945)
+    ),
+    url("../../images/img4.png");
+  background-position: center;
+  background-position: cover;
+  height: max-content;
+}
+
+.mdMobileBanner {
+  background-image: url("../../images/img5.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.mdBanner {
+  height: inherit;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.952),
+    rgba(255, 255, 255, 0.897)
+  );
+}
