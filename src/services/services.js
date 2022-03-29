@@ -2,7 +2,7 @@ import axios from "axios";
 
 import Swal from "sweetalert2";
 
-const devUrl = "http://localhost:2207/";
+const devUrl = `http://localhost:2207/`;
 
 const prodUrl = "https://a-level-bank.herokuapp.com/";
 
