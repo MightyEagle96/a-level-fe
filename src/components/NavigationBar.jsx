@@ -11,9 +11,9 @@ export default function NavigationBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
             {loggedInUser ? (
               <>
+                <Nav.Link href="/dashboard">Home</Nav.Link>
                 <Nav.Link href="/institutions">Institutions</Nav.Link>
                 <Nav.Link href="/subjects">Subjects</Nav.Link>
                 <NavDropdown title="Actions" id="basic-nav-dropdown">
@@ -29,7 +29,9 @@ export default function NavigationBar() {
                 </NavDropdown>
               </>
             ) : (
-              ""
+              <>
+                <Nav.Link href="/">Home</Nav.Link>
+              </>
             )}
           </Nav>
           <Nav className="ms-auto">
