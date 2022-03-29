@@ -3,7 +3,7 @@ import React from "react";
 import { Container, Row } from "react-bootstrap";
 import ExaminationBodies from "../../components/ExaminationBodies";
 import RegisteredInstitutions from "../../components/RegisteredInstitutions";
-import { green, red } from "@mui/material/colors";
+
 import TotalScratchCards from "../../components/TotalScratchCards";
 import UsedScratchCards from "../../components/UsedScratchCards";
 import AvailableScratchCards from "../../components/AvailableScratchCards";
@@ -15,7 +15,7 @@ export default function DashboardPage() {
         <div></div>
         <hr />
         <div className="mt-3">
-          <Typography variant="h6" sx={{ color: red[500] }}>
+          <Typography variant="h6" color="GrayText">
             INSTITUTIONS AND EXAMINATION BODIES
           </Typography>
           <Row className="mt-2">
@@ -30,7 +30,7 @@ export default function DashboardPage() {
         <hr />
         {/*SCRATCH CARDS */}
         <div className="  mt-3">
-          <Typography variant="h6" sx={{ color: green[500] }}>
+          <Typography variant="h6" color="GrayText">
             SCRATCH CARDS
           </Typography>
           <div className="row mt-2">
@@ -48,7 +48,7 @@ export default function DashboardPage() {
       </Container>
       <Container className="d-sm-block d-md-none   p-3 mt-3">
         <div className="border-bottom">
-          <Typography variant="h6" sx={{ color: red[500] }}>
+          <Typography variant="h6" color="GrayText">
             INSTITUTIONS AND EXAMINATION BODIES
           </Typography>
           <div className="mb-3 mt-2">
@@ -59,7 +59,7 @@ export default function DashboardPage() {
           </div>
         </div>
         <div className="mt-3">
-          <Typography variant="h6" sx={{ color: green[500] }}>
+          <Typography variant="h6" color="GrayText">
             SCRATCH CARDS
           </Typography>
           <div className="mt-2 mb-3">
