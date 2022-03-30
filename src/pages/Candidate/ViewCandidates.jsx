@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Avatar, Link, Typography } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
@@ -23,7 +24,6 @@ export default function ViewCandidates() {
         ? `viewCandidates?institution=${institution}`
         : "viewCandidates";
 
-      console.log({ path });
       const res = await httpService.get(path);
       setCandidates(res.data.candidates);
       setLoading(false);

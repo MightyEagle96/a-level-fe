@@ -12,6 +12,7 @@ import WelcomePage from "../pages/WelcomePage/WelcomePage";
 import { loggedInUser } from "../services/services";
 import DashboardPage from "../pages/Dashboard/DashboardPage";
 import ResultsPage from "../pages/Results/ResultsPage";
+import ScratchCardList from "../pages/ScratchCards/ScratchCardList";
 
 const privateRoutes = [
   { path: "/dashboard", component: DashboardPage },
@@ -21,6 +22,7 @@ const privateRoutes = [
   { path: "/viewCandidates", component: ViewCandidates },
   { path: "/viewCandidate/:id", component: ViewCandidate },
   { path: "/createCandidate", component: CreateCandidate },
+  { path: "/scratchCards", component: ScratchCardList },
 ];
 
 const publicRoutes = [
