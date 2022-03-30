@@ -47,7 +47,7 @@ export default function SubjectsView() {
   };
   return (
     <div className="mt-3 ">
-      <Container className="border border-secondary p-3 rounded-3">
+      <Container className="border  shadow-sm p-3 rounded-3">
         <div>
           <Button color="secondary" variant="contained" onClick={handleShow}>
             add new subject

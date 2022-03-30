@@ -59,7 +59,7 @@ export default function ViewCandidate() {
   return (
     <div>
       <Container>
-        <div className="mt-3 border border-dark p-3 rounded-3">
+        <div className="mt-3 border  p-3 rounded-3">
           <div className="d-flex justify-content-between">
             <div className="d-flex align-items-center">
               <Typography variant="h5">{`${candidate.firstName} ${candidate.lastName}`}</Typography>

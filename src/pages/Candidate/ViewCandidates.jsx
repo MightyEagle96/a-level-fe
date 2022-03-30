@@ -68,7 +68,7 @@ export default function ViewCandidates() {
   return (
     <div>
       <Container>
-        <div className="border border-dark rounded-3 mt-3 p-3">
+        <div className="border rounded-3 mt-3 p-3">
           <Typography variant="h5" color="ButtonShadow">
             Candidate List
           </Typography>{" "}

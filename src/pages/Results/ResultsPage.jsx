@@ -10,7 +10,7 @@ export default function ResultsPage() {
   return (
     <div>
       <Container>
-        <div className="border border-dark p-3 rounded-3 mt-3">
+        <div className="border  p-3 rounded-3 mt-3">
           <div className="d-flex justify-content-center mb-3">
             <Avatar
               src={data.imageUrl}
