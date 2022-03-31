@@ -1,11 +1,12 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
-
+import { green } from "@mui/material/colors";
 import { loggedInUser } from "../services/services";
 import { handleLogout } from "../services/services";
+
 export default function NavigationBar() {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar style={{ backgroundColor: green[900] }} variant="dark" expand="lg">
       <Container>
         <Navbar.Brand href="#home">A' Level Bank</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

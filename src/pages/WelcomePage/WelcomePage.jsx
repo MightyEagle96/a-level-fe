@@ -34,10 +34,13 @@ export default function WelcomePage() {
     <div>
       <div className="mt-3">
         <div className="container d-none d-lg-block">
-          <div className="row mdMobileBanner" style={{ height: 400 }}>
+          <div
+            className="row rounded-3 shadow-sm mdMobileBanner"
+            style={{ height: 400 }}
+          >
             <div className="col-md-6"></div>
             <div className="col-md-6 d-flex align-items-center justify-content-center">
-              <div className="mdBanner p-5">
+              <div className="mdBanner p-3">
                 <div className=" mb-4">
                   <Typography
                     variant="h5"

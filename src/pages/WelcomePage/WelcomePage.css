@@ -7,7 +7,6 @@
     url("../../images/img4.png");
   background-position: center;
   background-size: cover;
-  height: max-content;
 }
 
 .mdMobileBanner {
@@ -17,7 +16,6 @@
 }
 
 .mdBanner {
-  height: inherit;
   background-image: linear-gradient(
     to right bottom,
     rgba(255, 255, 255, 0.9),
