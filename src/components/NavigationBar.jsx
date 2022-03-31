@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
 
 import { loggedInUser } from "../services/services";
 import { handleLogout } from "../services/services";
@@ -16,17 +16,9 @@ export default function NavigationBar() {
                 <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="/institutions">Institutions</Nav.Link>
                 <Nav.Link href="/subjects">Subjects</Nav.Link>
-                <NavDropdown title="Actions" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/examBodies">
-                    Examination Bodies
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="/viewCandidates">
-                    Candidates List
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="/createCandidate">
-                    Create Candidate
-                  </NavDropdown.Item>
-                </NavDropdown>
+                <Nav.Link href="/examBodies">Examination Bodies</Nav.Link>
+                <Nav.Link href="/viewCandidates">Candidates List</Nav.Link>
+                <Nav.Link href="/createCandidate">Create Candidate</Nav.Link>
               </>
             ) : (
               <>
