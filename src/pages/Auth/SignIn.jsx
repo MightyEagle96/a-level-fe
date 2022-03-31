@@ -40,7 +40,7 @@ export default function SignIn() {
       const res = await httpService.post(path, account);
       localStorage.setItem("token", res.data.accessToken);
       localStorage.setItem("userData", JSON.stringify(res.data.user));
-      window.location.assign("/dashboard");
+      window.location.assign("/");
       setLoading(false);
     } catch (error) {
       setLoading(false);

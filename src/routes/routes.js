@@ -15,7 +15,7 @@ import ResultsPage from "../pages/Results/ResultsPage";
 import ScratchCardList from "../pages/ScratchCards/ScratchCardList";
 
 const privateRoutes = [
-  { path: "/dashboard", component: DashboardPage },
+  { path: "/", component: DashboardPage },
   { path: "/institutions", component: ViewInstitutes },
   { path: "/subjects", component: SubjectsView },
   { path: "/examBodies", component: ExaminationBodyView },

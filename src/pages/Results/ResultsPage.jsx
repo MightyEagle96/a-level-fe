@@ -1,12 +1,16 @@
-import { Avatar, Typography } from "@mui/material";
+import { Logout } from "@mui/icons-material";
+import { Avatar, Typography, Button } from "@mui/material";
 import React, { useState } from "react";
 import { Container, Row, Card } from "react-bootstrap";
-
+import { pink } from "@mui/material/colors";
 import { result } from "../../services/services";
 
 export default function ResultsPage() {
   const [data] = useState(result);
-
+  const redirectBack = () => {
+    localStorage.removeItem("candidate");
+    window.location.assign("/");
+  };
   return (
     <div>
       <Container>
@@ -55,6 +59,15 @@ export default function ResultsPage() {
               </Card>
             </div>
           </Row>
+          <div className="mt-3 text-center">
+            <Button
+              sx={{ color: pink[500] }}
+              onClick={redirectBack}
+              endIcon={<Logout />}
+            >
+              Go Back
+            </Button>
+          </div>
         </div>
       </Container>
     </div>

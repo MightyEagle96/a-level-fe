@@ -29,6 +29,7 @@ export default function WelcomePage() {
       setLoading(false);
     }
   };
+
   return (
     <div>
       <div className="mt-3">
@@ -75,6 +76,7 @@ export default function WelcomePage() {
                       color="success"
                       className="me-2"
                       type="submit"
+                      disabled={data.pin && data.regNumber ? false : true}
                     >
                       Check Result
                     </Button>
@@ -139,7 +141,7 @@ export default function WelcomePage() {
                       variant="contained"
                       color="success"
                       className="me-2"
-                      type="submit"
+                      disabled={data.pin && data.regNumber ? false : true}
                     >
                       Check Result
                     </Button>
@@ -202,6 +204,7 @@ export default function WelcomePage() {
                   color="success"
                   className="me-2"
                   type="submit"
+                  disabled={data.pin && data.regNumber ? false : true}
                 >
                   Check Result
                 </Button>

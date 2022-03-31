@@ -13,7 +13,7 @@ export default function NavigationBar() {
           <Nav className="me-auto">
             {loggedInUser ? (
               <>
-                <Nav.Link href="/dashboard">Home</Nav.Link>
+                <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="/institutions">Institutions</Nav.Link>
                 <Nav.Link href="/subjects">Subjects</Nav.Link>
                 <NavDropdown title="Actions" id="basic-nav-dropdown">
