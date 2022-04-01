@@ -13,6 +13,7 @@ import { loggedInUser } from "../services/services";
 import DashboardPage from "../pages/Dashboard/DashboardPage";
 import ResultsPage from "../pages/Results/ResultsPage";
 import ScratchCardList from "../pages/ScratchCards/ScratchCardList";
+import PurchaseCard from "../pages/Purchase/PurchaseCard";
 
 const privateRoutes = [
   { path: "/", component: DashboardPage },
@@ -29,6 +30,7 @@ const publicRoutes = [
   { path: "/", component: WelcomePage },
   { path: "/result", component: ResultsPage },
   { path: "/signIn", component: SignIn },
+  { path: "/purchaseCard", component: PurchaseCard },
   { path: "*", component: NotFound },
 ];
 
