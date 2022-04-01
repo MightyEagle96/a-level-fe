@@ -10,7 +10,7 @@ import { green } from "@mui/material/colors";
 function App() {
   return (
     <div>
-      <Page>
+      <Page loader={"resize-spin"} color={green[500]} size={4}>
         <NavigationBar />
         <MainRoutes />
         <FooterBar />
