@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row } from "react-bootstrap";
-import {
-  useFlutterwave,
-  closePaymentModal,
-  FlutterWaveButton,
-} from "flutterwave-react-v3";
+import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3";
 import { Button, TextField, Typography } from "@mui/material";
 import img6 from "../../images/img6.jpg";
 import { grey } from "@mui/material/colors";
