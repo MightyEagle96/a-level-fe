@@ -4,13 +4,17 @@ import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 import MainRoutes from "./routes/routes";
 import NavigationBar from "./components/NavigationBar";
 import FooterBar from "./components/FooterBar";
+import Page from "react-page-loading";
+import { green } from "@mui/material/colors";
 
 function App() {
   return (
     <div>
-      <NavigationBar />
-      <MainRoutes />
-      <FooterBar />
+      <Page>
+        <NavigationBar />
+        <MainRoutes />
+        <FooterBar />
+      </Page>
     </div>
   );
 }
