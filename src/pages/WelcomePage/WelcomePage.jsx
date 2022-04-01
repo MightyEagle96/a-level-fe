@@ -30,6 +30,9 @@ export default function WelcomePage() {
     }
   };
 
+  const redirectToPurchase = () => {
+    window.location.assign("/purchaseCard");
+  };
   return (
     <div>
       <div className="mt-3">
@@ -92,7 +95,10 @@ export default function WelcomePage() {
                   <span className="">
                     <Typography align="center" variant="body1">
                       Don't have a pin?{" "}
-                      <Button style={{ color: green[500] }}>
+                      <Button
+                        onClick={redirectToPurchase}
+                        style={{ color: green[500] }}
+                      >
                         purchase one now
                       </Button>
                     </Typography>
@@ -157,7 +163,10 @@ export default function WelcomePage() {
                   <span className="">
                     <Typography align="center" variant="body1">
                       Don't have a pin?{" "}
-                      <Button style={{ color: green[500] }}>
+                      <Button
+                        onClick={redirectToPurchase}
+                        style={{ color: green[500] }}
+                      >
                         purchase one now
                       </Button>
                     </Typography>
@@ -220,7 +229,10 @@ export default function WelcomePage() {
               <span className="">
                 <Typography align="center" variant="body2">
                   Don't have a pin?{" "}
-                  <Button style={{ color: green[500] }}>
+                  <Button
+                    onClick={redirectToPurchase}
+                    style={{ color: green[700] }}
+                  >
                     purchase one now
                   </Button>
                 </Typography>
