@@ -7,10 +7,12 @@ import RegisteredInstitutions from "../../components/RegisteredInstitutions";
 import TotalScratchCards from "../../components/TotalScratchCards";
 import UsedScratchCards from "../../components/UsedScratchCards";
 import AvailableScratchCards from "../../components/AvailableScratchCards";
+import MyJumbotron from "../../components/MyJumbotron";
 
 export default function DashboardPage() {
   return (
     <div>
+      <MyJumbotron />
       <Container className="d-none d-md-block">
         <div></div>
         <hr />
