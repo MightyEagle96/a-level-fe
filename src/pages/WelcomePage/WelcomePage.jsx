@@ -5,6 +5,7 @@ import "./WelcomePage.css";
 import { green } from "@mui/material/colors";
 import { Spinner } from "react-bootstrap";
 import { httpService } from "../../services/services";
+import logoVector from "../../images/logoVector.png";
 
 export default function WelcomePage() {
   const [data, setData] = useState({});
@@ -178,7 +179,10 @@ export default function WelcomePage() {
         </div>
         <Container className="d-sm-block d-md-none">
           <div className="mobileBanner p-3 shadow-lg rounded-3">
-            <div className="mt-3 mb-4">
+            <div>
+              <img src={logoVector} className="img-fluid" alt="logo" />
+            </div>
+            <div className="mb-4">
               <Typography
                 variant="h5"
                 color={green[500]}
